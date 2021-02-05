@@ -1,10 +1,10 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-var upperCase = "ABCDEFGHIJAKLMNOPQRSTUVWXYZ";
-var lowerCase = "abcdefghijklmnopqrstuvwxyz";
-var numbers = "1234567890";
-var specialChar = "!@#$%^&*+=/?";
+var upperCase = "ABCDEFGHIJAKLMNOPQRSTUVWXYZ".split("");
+var lowerCase = "abcdefghijklmnopqrstuvwxyz".split("");
+var numbers = "1234567890".split("");
+var specialChar = "!@#$%^&*+=/?".split("");
 var password = "";
 
 // Write password to the #password input
@@ -53,74 +53,37 @@ function passwordCriteria() {
     if (confirmSpecial) {
         password = password + specialChar;   
        }
-       else {password = password};
+       else {
+           password = password;
+        };
 
-
-    var selections = [confirmUpper, confirmLower, confirmNumbers, confirmSpecial];
-    if (selections[0, 1, 2, 3] === false) {
+    window.globalConfirmLength = confirmLength; 
+    window.globalPassword = password;
+   
+    if (confirmUpper === false && confirmLower === false && confirmNumbers === false && confirmSpecial === false) {
         alert("Must select criteria for password")
         return passwordCriteria();
     }
     return password;
 }
-function generatePassword(){
+//ran these console logs to ensure i have the right data types
+console.log(passwordCriteria());
+console.log(typeof password);
+console.log(globalConfirmLength)
+console.log(typeof globalConfirmLength);
+
+
+
+
+function passwordContents(){
     
 }
 
 
-console.log(passwordCriteria());
-console.log(typeof password)
-
-// function passwordContents() {
-//     return globalSelections.filter(item => item !==false) //filters out false values
-// };
-
-// console.log(passwordContents());
-
-// console.log(globalSelections[2])
 
 
 
 
 
-
-
-
-// passwordContents();
-// console.log(password)
-
-
-
-
-
-
-// var password = generatePassword()
-// function writePassword() {
-
-
-
-
-//     var password = generatePassword()
-//     var passwordText = document.querySelector("#password");
-
-//     passwordText.value = password;
-// }
-
-// Add event listener to generate button
-// generateBtn.addEventListener("click", writePassword);
-
-
-
-
-
-
-
-
-
-
-
-
-// window.globalSelections = selections;
-// window.globalConfirm5 = confirmLength; 
 
 
