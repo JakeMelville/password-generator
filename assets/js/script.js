@@ -10,6 +10,20 @@ var password = [upperCase, lowerCase, numbers, specialChar]
 // Write password to the #password input
 function passwordCriteria() {
    
+    var confirmLength = parseInt(prompt("Pick a length between 8-128"));
+    console.log(confirmLength);
+
+    if (isNaN(confirmLength) === true) {
+        alert("Password must be a number.")
+        return passwordCriteria();
+    }
+    if (confirmLength < 8 || confirmLength > 128) {
+        alert("Must be between 8-128 characters")
+        return passwordCriteria();
+    }
+
+        
+   
     var confirmUpper = confirm("Uppercase letters?")
     console.log(confirmUpper);
 
@@ -22,17 +36,16 @@ function passwordCriteria() {
     var confirmSpecial = confirm("Special Characters?")
     console.log(confirmSpecial);
 
-    var confirmLength = prompt("Pick a length between 8-128");
-    console.log(confirmLength);
+    
 
-    var selections = [confirm1, confirm2, confirm3, confirm4];
+    var selections = [confirmUpper, confirmLower, confirmNumbers, confirmSpecial];
    
     window.globalSelections = selections;
-    window.globalConfirm5 = confirm5; 
+    window.globalConfirm5 = confirmLength; 
    
     return selections;
 }
-console.log(writePassword());
+console.log(passwordCriteria());
 
 function passwordContents() {
     return globalSelections.filter(item => item !==false) //filters out false values
