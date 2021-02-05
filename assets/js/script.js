@@ -8,43 +8,39 @@ var specialChar = "!@#$%^&*+=/?";
 var password = [upperCase, lowerCase, numbers, specialChar]
 
 // Write password to the #password input
-function writePassword() {
+function passwordCriteria() {
    
-    var confirm1 = confirm("Uppercase letters?")
-    console.log(confirm1);
+    var confirmUpper = confirm("Uppercase letters?")
+    console.log(confirmUpper);
 
-    var confirm2 = confirm("Lowercase letters?")
-    console.log(confirm2);
+    var confirmLower = confirm("Lowercase letters?")
+    console.log(confirmLower);
 
-    var confirm3 = confirm("Numbers?")
-    console.log(confirm3);
+    var confirmNumbers = confirm("Numbers?")
+    console.log(confirmNumbers);
 
-    var confirm4 = confirm("Special Characters?")
-    console.log(confirm4);
+    var confirmSpecial = confirm("Special Characters?")
+    console.log(confirmSpecial);
 
-    var confirm5 = prompt("Pick a length between 8-128");
-    console.log(confirm5);
+    var confirmLength = prompt("Pick a length between 8-128");
+    console.log(confirmLength);
 
-    var selections = [confirm1, confirm2, confirm3, confirm4, confirm5];
+    var selections = [confirm1, confirm2, confirm3, confirm4];
    
     window.globalSelections = selections;
+    window.globalConfirm5 = confirm5; 
    
     return selections;
 }
 console.log(writePassword());
-console.log(globalSelections)
-
-
-
-
 
 function passwordContents() {
-    return globalSelections.filter(item => item !==false)
+    return globalSelections.filter(item => item !==false) //filters out false values
 };
 
-console.log(passwordContents())
+console.log(passwordContents());
 
-
+console.log(globalSelections[2])
 
 
 
