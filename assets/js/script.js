@@ -6,6 +6,7 @@ var lowerCase = "abcdefghijklmnopqrstuvwxyz".split("");
 var numbers = "1234567890".split("");
 var specialChar = "!@#$%^&*+=/?".split("");
 var password = "";
+var finalPassword= ""
 
 // Write password to the #password input
 function passwordCriteria() {
@@ -74,17 +75,25 @@ console.log(globalPassword);
 
 
 
-for (j = 0; j <= globalConfirmLength; j++){
+//this function is returning one random number 
 function passwordContents(){
     var index = Math.floor(Math.random() * globalConfirmLength);
     var finalPass = globalPassword[index];
-    return finalPass;
-}    
+    return finalPass; 
 };
 
+
+for (i = 0; i <= globalConfirmLength; i++) {
+    passwordContents();
+    
+} 
+
+
+
 console.log(passwordContents());
+// console.log(passwordContents());
 
 
-
+// for (i = 0; i <= globalConfirmLength; i++)
 
 
