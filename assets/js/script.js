@@ -68,20 +68,21 @@ function passwordCriteria() {
 }
 //ran these console logs to ensure i have the right data types
 console.log(passwordCriteria());
-console.log(typeof password);
 console.log(globalConfirmLength)
 console.log(typeof globalConfirmLength);
+console.log(globalPassword);
 
 
 
-
+for (j = 0; j <= globalConfirmLength; j++){
 function passwordContents(){
-    
-}
+    var index = Math.floor(Math.random() * globalConfirmLength);
+    var finalPass = globalPassword[index];
+    return finalPass;
+}    
+};
 
-
-
-
+console.log(passwordContents());
 
 
 
