@@ -22,16 +22,36 @@ function writePassword() {
     var confirm4 = confirm("Special Characters?")
     console.log(confirm4);
 
-    var confirm5 = prompt("Pick a length between 8-128")
-    console.log(confirm5)
+    var confirm5 = prompt("Pick a length between 8-128");
+    console.log(confirm5);
 
-    var selections = [confirm1, confirm2, confirm3, confirm4, confirm5]
+    var selections = [confirm1, confirm2, confirm3, confirm4, confirm5];
+   
+    window.globalSelections = selections;
+   
     return selections;
 }
 console.log(writePassword());
-// console.log(password)
+console.log(globalSelections)
 
-// function passwordContents() {
+
+
+
+
+function passwordContents() {
+    return globalSelections.filter(item => item !==false)
+};
+
+console.log(passwordContents())
+
+
+
+
+
+
+
+
+
 
 // passwordContents();
 // console.log(password)
