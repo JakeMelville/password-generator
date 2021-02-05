@@ -5,25 +5,23 @@ var upperCase = "ABCDEFGHIJAKLMNOPQRSTUVWXYZ";
 var lowerCase = "abcdefghijklmnopqrstuvwxyz";
 var numbers = "1234567890";
 var specialChar = "!@#$%^&*+=/?";
-var password = [upperCase, lowerCase, numbers, specialChar]
+var password = []
 
 // Write password to the #password input
 function passwordCriteria() {
    
-    var confirmLength = parseInt(prompt("Pick a length between 8-128"));
+    var confirmLength = parseInt(prompt("Pick a length between 8-128")); //converted answer from string to int
     console.log(confirmLength);
 
     if (isNaN(confirmLength) === true) {
         alert("Password must be a number.")
-        return passwordCriteria();
+        return passwordCriteria(); //if the input is not a number or not within 8-128, the function will restart
     }
     if (confirmLength < 8 || confirmLength > 128) {
         alert("Must be between 8-128 characters")
         return passwordCriteria();
     }
 
-        
-   
     var confirmUpper = confirm("Uppercase letters?")
     console.log(confirmUpper);
 
@@ -39,21 +37,23 @@ function passwordCriteria() {
     
 
     var selections = [confirmUpper, confirmLower, confirmNumbers, confirmSpecial];
-   
-    window.globalSelections = selections;
-    window.globalConfirm5 = confirmLength; 
+        if (selections[0,1,2,3] === false){
+            alert("Must select criteria for password")
+            return passwordCriteria();
+        }
+
    
     return selections;
 }
 console.log(passwordCriteria());
 
-function passwordContents() {
-    return globalSelections.filter(item => item !==false) //filters out false values
-};
+// function passwordContents() {
+//     return globalSelections.filter(item => item !==false) //filters out false values
+// };
 
-console.log(passwordContents());
+// console.log(passwordContents());
 
-console.log(globalSelections[2])
+// console.log(globalSelections[2])
 
 
 
@@ -96,6 +96,7 @@ console.log(globalSelections[2])
 
 
 
-
+// window.globalSelections = selections;
+// window.globalConfirm5 = confirmLength; 
 
 
