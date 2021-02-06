@@ -96,10 +96,9 @@ for (i = 0; i < globalConfirmLength; i++) {
 console.log(combineCharacters)
 console.log(typeof combineCharacters)
 
-
-function textArea() {
-    console.log(combineCharacters)
-}
+//using variable textarea I am now changing the textbox in html to the new string stored in combineCharacters
+var myTextArea = document.querySelector("#password");
+myTextArea.innerHTML += combineCharacters;
 
 
 
