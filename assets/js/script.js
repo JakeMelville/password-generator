@@ -1,10 +1,11 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+var passwordText = document.querySelector("#password")
 
-var upperCase = "ABCDEFGHIJAKLMNOPQRSTUVWXYZ".split("");
-var lowerCase = "abcdefghijklmnopqrstuvwxyz".split("");
-var numbers = "1234567890".split("");
-var specialChar = "!@#$%^&*+=/?".split("");
+var upperCase = "ABCDEFGHIJAKLMNOPQRSTUVWXYZ";
+var lowerCase = "abcdefghijklmnopqrstuvwxyz";
+var numbers = "1234567890";
+var specialChar = "!@#$%^&*+=/?";
 var password = "";
 var finalPassword= ""
 
@@ -58,8 +59,8 @@ function passwordCriteria() {
            password = password;
         };
 
-    window.globalConfirmLength = confirmLength; 
-    window.globalPassword = password;
+    window.globalConfirmLength = confirmLength; //redefined as global varaiable so I can use later in code
+    window.globalPassword = password; //same as above
    
     if (confirmUpper === false && confirmLower === false && confirmNumbers === false && confirmSpecial === false) {
         alert("Must select criteria for password")
@@ -71,29 +72,37 @@ function passwordCriteria() {
 console.log(passwordCriteria());
 console.log(globalConfirmLength)
 console.log(typeof globalConfirmLength);
-console.log(globalPassword);
+console.log(globalPassword.length);
 
 
 
 //this function is returning one random number 
 function passwordContents(){
-    var index = Math.floor(Math.random() * globalConfirmLength);
+    var index = Math.floor(Math.random() * globalPassword.length);
     var finalPass = globalPassword[index];
     return finalPass; 
 };
 
+//now taking the above function and looping it using globalConfirmLength. 
+//(which was the answer to the first prompt asking how many characters)
+var combineCharacters = "";
 
-for (i = 0; i <= globalConfirmLength; i++) {
-    passwordContents();
+for (i = 0; i < globalConfirmLength; i++) {
     
+    var passwordTextbox = passwordContents();
+    combineCharacters = combineCharacters + passwordTextbox;
 } 
 
+console.log(combineCharacters)
+console.log(typeof combineCharacters)
 
 
-console.log(passwordContents());
-// console.log(passwordContents());
+function textArea() {
+    console.log(combineCharacters)
+}
 
 
-// for (i = 0; i <= globalConfirmLength; i++)
+
+
 
 
