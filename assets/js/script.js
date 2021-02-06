@@ -7,7 +7,7 @@ var lowerCase = "abcdefghijklmnopqrstuvwxyz";
 var numbers = "1234567890";
 var specialChar = "!@#$%^&*+=/?";
 var password = "";
-var finalPassword= ""
+
 
 // Write password to the #password input
 function passwordCriteria() {
@@ -23,11 +23,11 @@ function passwordCriteria() {
         alert("Must be between 8-128 characters")
         return passwordCriteria();
     }
-
+// below are all og the confirm prompts that will help us make our password
     var confirmUpper = confirm("Uppercase letters?")
     console.log(confirmUpper);
     
-    var password = [];
+    var password = ""; //created an emptry string to store the values of confirmed prompts 
     if (confirmUpper) {
      password = password + upperCase;   
     }
@@ -35,7 +35,7 @@ function passwordCriteria() {
 
     var confirmLower = confirm("Lowercase letters?")
     console.log(confirmLower);
-
+// if this confirm prompt is true, the function will add our lowerCase variable string to our empty string in password
     if (confirmLower) {
         password = password + lowerCase;   
        }
@@ -66,7 +66,7 @@ function passwordCriteria() {
         alert("Must select criteria for password")
         return passwordCriteria();
     }
-    return password;
+    return password; //returns one string of all potential characters that can be used in password.
 }
 //ran these console logs to ensure i have the right data types
 console.log(passwordCriteria());
@@ -99,9 +99,4 @@ console.log(typeof combineCharacters)
 //using variable textarea I am now changing the textbox in html to the new string stored in combineCharacters
 var myTextArea = document.querySelector("#password");
 myTextArea.innerHTML += combineCharacters;
-
-
-
-
-
 
