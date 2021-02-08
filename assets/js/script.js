@@ -9,13 +9,14 @@ var specialChar = "!@#$%^&*+=/?";
 var password = "";
 
 
-generateBtn.addEventListener("click", passwordCriteria)
+// generateBtn.addEventListener("click", passwordCriteria)
 
-generateBtn.onclick = passwordCriteria();
+generateBtn.onclick = passwordCriteria;
 
 // Write password to the #password input
 function passwordCriteria(){
 
+    password = "";
     var confirmLength = parseInt(prompt("Pick a length between 8-128")); //converted answer from string to int
     console.log(confirmLength);
 
@@ -61,51 +62,54 @@ function passwordCriteria(){
        }
        else {
            password = password;
-        };
+    };
 
-    window.globalConfirmLength = confirmLength; //redefined as global varaiable so I can use later in code
-    window.globalPassword = password; //same as above
+     
+    // window.globalConfirmLength = confirmLength; //redefined as global varaiable so I can use later in code
+    // window.globalPassword = password; //same as above
 
 
     if (confirmUpper === false && confirmLower === false && confirmNumbers === false && confirmSpecial === false) {
         alert("Must select criteria for password")
         return passwordCriteria();
     }
-    return password; //returns one string of all potential characters that can be used in password.
+    printText(password, confirmLength);
+    return; //returns one string of all potential characters that can be used in password.
 }
 //ran these console logs to ensure i have the right data types
 // passwordCriteria;
-console.log(globalConfirmLength)
-console.log(typeof globalConfirmLength);
-console.log(globalPassword.length);
+// console.log(globalConfirmLength)
+// console.log(typeof globalConfirmLength);
+// console.log(globalPassword.length);
 
 
 
 //this function is returning one random number 
-function passwordContents(){
-    var index = Math.floor(Math.random() * globalPassword.length);
-    var finalPass = globalPassword[index];
+function passwordContents(password){
+    var index = Math.floor(Math.random() * password.length);
+    var finalPass = password[index];
     console.log(finalPass) //this is our random password
     return finalPass; 
     
 };
 
-console.log(passwordContents());
+// console.log(passwordContents());
 //now taking the above function and looping it using globalConfirmLength. 
 //(which was the answer to the first prompt asking how many characters)
 
 var combineCharacters = ""; //empty variable which I will assign our password string to below
 
-function printText() {
-for (i = 0; i < globalConfirmLength; i++) {
+function printText(password, confirmLength) {
+for (i = 0; i < confirmLength; i++) {
     
-    var passwordTextbox = passwordContents();
+    var passwordTextbox = passwordContents(password);
     combineCharacters = combineCharacters + passwordTextbox;
 } 
     var myTextArea = document.querySelector("#password"); //using variable textarea I am now changing the textbox in html to the new string stored in combineCharacters
-    myTextArea.innerHTML += combineCharacters;
-
+    myTextArea.innerHTML = combineCharacters;
+    
+    
 }    
-console.log(combineCharacters);
-console.log(typeof combineCharacters);
-printText();
+// console.log(combineCharacters);
+// console.log(typeof combineCharacters);
+// printText();
